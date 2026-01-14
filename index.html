@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My portifolio</title>
+
+<style>
+body{
+    background: linear-gradient(135deg, skyblue, navy, skyblue);
+    font-family: "Outfit", sans-serif;
+    margin:0;
+}
+
+nav{
+    background-color: navy;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    height:5em;
+    width:98%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:0 20px;
+    z-index:1000;
+}
+
+.channel{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-size:1.5em;
+}
+
+.channel img{
+    height:45px;
+    border-radius:50%;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+.hamburger{
+    display:none    ;
+    font-size:32px;
+    cursor:pointer;
+    margin-right: 20px;
+}
+
+.list{
+    display:flex;
+    gap:40px;
+}
+
+.list a{
+    color:white;
+    text-decoration:none;
+}
+
+.introduction{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    padding:140px 40px 60px;
+}
+
+.introduction img{
+    height:25em;
+    width:25em;
+    border-radius:200px;
+    object-fit:cover;
+}
+
+.aboutme p{
+    width:600px;
+    font-size:19px;
+    line-height:25px;
+}
+
+.line{
+    background:grey;
+    height:4px;
+    margin:40px 0;
+}
+
+.portifolios{
+    text-align:center;
+}
+
+.child{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:60px 200px;
+    gap:40px;
+}
+
+.child img{
+    width:550px;
+    height:300px;
+}
+
+.title p{
+    width:180px;
+}
+
+.get{
+    display:flex;
+    justify-content:center;
+    color:white;
+}
+
+.message{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:100px;
+}
+
+.medium{
+    width:400px;
+    height:40px;
+    margin-bottom:10px;
+}
+
+textarea{
+    width:500px;
+    height:80px;
+}
+
+footer{
+    background:rgb(96,20,196);
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.social-icons a{
+    font-size:26px;
+    margin:0 10px;
+}
+
+@media (max-width:1024px){
+    .introduction{
+        flex-direction:column;
+        text-align:center;
+    }
+    .aboutme p{
+        width:90%;
+    }
+    .child{
+        flex-direction:column;
+        margin:40px;
+    }
+    .child img{
+        width:100%;
+        height:auto;
+    }
+    .title p{
+        width:100%;
+        text-align:center;
+    }
+}
+
+@media (max-width:768px){
+    .hamburger{
+        display:block;
+    }
+    .list{
+        position:absolute;
+        top:5em;
+        right:0;
+        background:navy;
+        flex-direction:column;
+        width:100%;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+    }
+    #menu-toggle:checked ~ .list{
+        display:flex;
+    }
+    .introduction img{
+        width:16em;
+        height:16em;
+    }
+    .medium,
+    textarea{
+        width:90%;
+    }
+}
+
+@media (max-width:480px){
+    h1{
+        font-size:28px;
+    }
+    .introduction img{
+        width:14em;
+        height:14em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="channel">
+        <img src="../youtube/IMG-20251117-WA0011.jpg">
+        <h2>Enoch</h2>
+    </div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <div class="list">
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Contact</a>
+    </div>
+</nav>
+
+<div class="introduction">
+    <img src="/portifolio/WhatsApp Image 2026-01-11 at 02.34.19.jpeg">
+    <div class="aboutme">
+        <h1>About Me</h1>
+        <p>
+            My name is Enoch Amurawaiye a frontend web developer and an upcoming
+            fullstack web developer, passionate about clean code and perfect design,
+            with html css i can create a perfect design weather its cloning apple
+            website, youtube clone and all that. I am a secondary school graduate
+            from the school named 'MERCY'T'COLLEGE' in a science department. For me
+            beign a fullstack developer is a dream coming through.
+        </p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<h1 class="portifolios">My portifolio</h1>
+
+<div class="child">
+    <a href="/apple_website/apple.html">
+        <img src="/portifolio/Screenshot 2026-01-11 130658.png">
+    </a>
+    <div class="title">
+        <h2>AppleUI Clone</h2>
+        <p>A UI clone of Apple website, built with HTML & CSS only</p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <div class="title">
+        <h2>Extension list</h2>
+        <p>A simple Extension for managing tabs & links, for quick actions
+        and navigations, built with pure HTML CSS</p>
+    </div>
+    <a href="/frontend mentor/extensions.html">
+        <img src="Screenshot 2026-01-11 130815.png">
+    </a>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <a href="/frontend mentor/notification/">
+        <img src="Screenshot 2026-01-11 130914.png">
+    </a>
+    <div class="title">
+        <h2>Notification Page</h2>
+        <p>A simple notification page crafted with HTML and styled with CSS</p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <div class="title">
+        <h2>Instagram login Page</h2>
+        <p>A simple HTML CSS clone of the Instagram login page</p>
+    </div>
+    <a href="/instagram/instagram_style.html">
+        <img src="Screenshot 2026-01-11 130942.png">
+    </a>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <a href="/free_code_camp.html/resturant/Exotic-resturant.html">
+        <img src="Screenshot 2026-01-11 131011.png">
+    </a>
+    <div class="title">
+        <h2>Exotic Resturant</h2>
+        <p>A website for resturant named "Exotic Resturant" pure built with
+        HTML CSS and minimal JS</p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <div class="title">
+        <h2>Youtube Clone</h2>
+        <p>HTML CSS clone of youtube linking to the real youtube videos</p>
+    </div>
+    <a href="/youtube/youtube.html">
+        <img src="Screenshot 2026-01-11 131041.png">
+    </a>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <a href="/free_code_camp.html/rollingwhell4.html">
+        <img src="Screenshot 2026-01-11 131136.png">
+    </a>
+    <div class="title">
+        <h2>Moving Car</h2>
+        <p>This is a CSS animation work insipired from a freeCodeCamp project
+        "The Rolling Wheel"</p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <div class="title">
+        <h2>Bento Grid</h2>
+        <p>This a bento grid, using grid has the main man in the CSS styling</p>
+    </div>
+    <a href="/frontend mentor/bento_grid.html">
+        <img src="Screenshot 2026-01-11 131222.png">
+    </a>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <a href="/free_code_camp.html/pengiun.html">
+        <img src="Screenshot 2026-01-11 131526.png">
+    </a>
+    <div class="title">
+        <h2>Flappy Penguin</h2>
+        <p>A penguin with Flappy wings built with HTML CSS only</p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <div class="title">
+        <h2>Discord login</h2>
+        <p>This the UI design for discord login page</p>
+    </div>
+    <a href="/discord/discord.html">
+        <img src="Screenshot 2026-01-11 132511.png">
+    </a>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <a href="/facebook/facebook_style.html">
+        <img src="Screenshot 2026-01-11 132556.png">
+    </a>
+    <div class="title">
+        <h2>Facebook login</h2>
+        <p>This the UI design for discord login page</p>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="child">
+    <div class="title">
+        <h2>Waiting list</h2>
+        <p>This a Waiting list web page with beautifuly crafted with HTML CSS</p>
+    </div>
+    <a href="/free_code_camp.html/waiting-list.html">
+        <img src="Screenshot 2026-01-11 132649.png">
+    </a>
+</div>
+
+<div class="getintouch">
+    <div class="get"><h1>Get in touch</h1></div>
+    <div class="message">
+        <input type="email" placeholder="Email" class="medium"><br>
+        <input type="username" placeholder="Username" class="medium"><br>
+        <input type="phone no" placeholder="Phone Number" class="medium"><br>
+        <textarea placeholder="Message"></textarea>
+    </div>
+</div>
+
+<footer>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank">📘</a>
+        <a href="mailto:example@email.com">📧</a>
+        <a href="https://twitter.com" target="_blank">🐦</a>
+        <a href="https://www.instagram.com" target="_blank">📸</a>
+    </div>
+    <h3>©️2025 Enoch all right reserve</h3>
+</footer>
+
+</body>
+</html>
