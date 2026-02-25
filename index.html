@@ -3,466 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My portifolio</title>
+<title>Enoch | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{
-    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
-    font-family: "Outfit", sans-serif;
-    margin:0;
-    color:#e2e8f0;
-}
+/* ================= GLOBAL ================= */
+* { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
+body { font-family:'Outfit', sans-serif; background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a); color:#e2e8f0; transition:0.5s; }
+a { text-decoration:none; }
+.cool-btn { background: linear-gradient(45deg,#22d3ee,#a855f7); color:white; padding:12px 25px; border:none; border-radius:40px; font-weight:600; cursor:pointer; transition:0.4s ease; }
+.cool-btn:hover { transform: scale(1.1); box-shadow:0 0 25px rgba(34,211,238,0.6); }
 
-/* ================= NAV ================= */
-
-nav{
-    background:rgba(2,6,23,0.95);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    height:5em;
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    padding:0 20px;
-    z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.channel{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    font-size:1.5em;
-}
-
-.channel img{
-    height:45px;
-    border-radius:50%;
-}
-
-.channel h2{
-    color:#22d3ee;
-}
-
-.list{
-    display:flex;
-    gap:40px;
-    position: relative;
-    left: -40px;
-}
-
-.list a{
-    color:#cbd5e1;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.list a:hover{
-    color:#22d3ee;
-}
-
-#menu-toggle{
-    display:none;
-}
-
-.hamburger{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
-    color:#22d3ee;
-    margin-left: 50px;
-    position: relative;
-     right:40px ;
-}
+/* ================= NAVIGATION ================= */
+nav { position:fixed; top:0; left:0; width:100%; height:5em; display:flex; justify-content:space-between; align-items:center; background: rgba(2,6,23,0.95); backdrop-filter:blur(12px); padding:0 2em; z-index:1000; border-bottom:1px solid rgba(255,255,255,0.1); transition:0.3s; }
+nav.shrink { height:4em; }
+.logo { font-size:1.8em; font-weight:700; color:#22d3ee; cursor:pointer; transition:0.3s; }
+#menu-toggle { display:none; }
+.hamburger { display:none; font-size:2em; cursor:pointer; color:#22d3ee; }
+.list { display:flex; gap:2em; }
+.list a { color:#cbd5e1; font-weight:500; transition:0.3s; }
+.list a:hover { color:#22d3ee; }
 
 /* ================= INTRO ================= */
+#intro { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:140px 20px 60px; text-align:center; gap:20px; opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards 0.2s; }
+#intro h1 { font-size:2.5em; color:#22d3ee; }
+#intro p { max-width:700px; color:#cbd5e1; line-height:1.8em; }
+.intro-buttons { display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
 
-.introduction{
-    background:#020617;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:60px;
-    padding:140px 40px 60px;
-    flex-wrap:wrap;
-}
+/* ================= ABOUT ME ================= */
+#aboutme { padding:80px 20px; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:40px; max-width:1200px; margin:0 auto; }
+#aboutme div { opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards; }
+#aboutme img { width:300px; height:300px; border-radius:200px; object-fit:cover; transition:0.5s; box-shadow:0 0 30px rgba(34,211,238,0.5); }
+.about-card { flex:1; min-width:250px; background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); padding:30px 25px; border-radius:20px; box-shadow:0 0 20px rgba(34,211,238,0.3); }
+.about-card h1 { color:#22d3ee; margin-bottom:15px; }
+.about-card p { color:#cbd5e1; line-height:1.7em; }
+.about-card p.autograph { color:#22d3ee; font-style:italic; margin-top:20px; }
 
-.introduction img{
-    height:25em;
-    width:25em;
-    border-radius:200px;
-    object-fit:cover;
-    transition:0.4s;
-}
+/* ================= PORTFOLIO CARDS ================= */
+#portfolio { padding:60px 20px; max-width:1200px; margin:0 auto; }
+#portfolio h1 { text-align:center; font-size:2.5em; margin-bottom:40px; color:#22d3ee; opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards 0.2s; }
+.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+.card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius:15px; overflow:hidden; transition:0.5s; border:1px solid rgba(255,255,255,0.08); cursor:pointer; opacity:0; transform:translateY(30px); }
+.card:hover { transform:translateY(-10px) scale(1.05); box-shadow:0 10px 30px rgba(34,211,238,0.5); }
+.card img { width:100%; height:200px; object-fit:cover; transition:0.4s; }
+.card img:hover { transform: scale(1.08); }
+.card-content { padding:20px; transition:0.3s; }
+.card-content h2 { color:#22d3ee; margin-bottom:10px; }
+.card-content p { color:#cbd5e1; line-height:1.6em; }
+.card-content a { color:#a855f7; font-weight:600; transition:0.3s; }
+.card-content a:hover { text-decoration:underline; }
 
-.introduction img:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 30px rgba(34,211,238,0.6);
-}
+/* ================= CONTACT ================= */
+#getintouch { display:flex; justify-content:center; align-items:center; padding:80px 20px; }
+.contact-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius:20px; padding:50px 30px; max-width:600px; width:100%; box-shadow:0 0 20px rgba(34,211,238,0.3); border:1px solid rgba(255,255,255,0.1); transition:0.5s; }
+.contact-card:hover { box-shadow:0 0 40px rgba(34,211,238,0.6); }
+.contact-card h1 { color:#22d3ee; text-align:center; margin-bottom:30px; }
+.contact-card input, .contact-card textarea { width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #334155; background:#0f172a; color:white; transition:0.3s; }
+.contact-card input:focus, .contact-card textarea:focus { outline:none; border:1px solid #22d3ee; box-shadow:0 0 15px rgba(34,211,238,0.5); }
+.contact-card textarea { height:120px; }
 
-.aboutme{
-    max-width:600px;
-}
-
-.aboutme p{
-    font-size:18px;
-    line-height:28px;
-    color:#cbd5e1;
-}
-
-.cool-btn{
-    background: linear-gradient(45deg, #22d3ee, #a855f7);
-    color:white;
-    padding:12px 25px;
-    border:none;
-    border-radius:40px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.4s ease;
-    margin-top:20px;
-}
-
-.cool-btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 20px rgba(168,85,247,0.6);
-}
-
-.portifolios{
-    text-align:center;
-    margin-top:60px;
-}
-
-.bgg{
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(8px);
-    width:90%;
-    min-height:330px;
-    border-radius:10px;
-    margin:40px auto;
-    border:1px solid rgba(255,255,255,0.08);
-    transition:0.4s ease;
-}
-
-.bgg:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(34,211,238,0.4);
-}
-
-.child{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:40px;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.child img{
-    width:500px;
-    max-width:100%;
-    height:auto;
-    border-radius:10px;
-}
-
-.title p{
-    max-width:300px;
-    color:#94a3b8;
-}
-
-.getintouch{
-    background:#020617;
-    padding:60px 20px;
-    margin-top:60px;
-}
-
-.get{
-    display:flex;
-    justify-content:center;
-}
-
-.get h1{
-    color:#22d3ee;
-}
-
-.message{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.medium,
-textarea{
-    width:90%;
-    max-width:500px;
-    margin-bottom:10px;
-    background:#0f172a;
-    border:1px solid #334155;
-    color:white;
-    border-radius:8px;
-    padding:10px;
-}
-
-textarea{
-    height:100px;
-}
-
-.medium:focus, textarea:focus{
-    outline:none;
-    border:1px solid #22d3ee;
-    box-shadow:0 0 10px rgba(34,211,238,0.5);
-}
+/* ================= CHAT BOX ================= */
+.chat-box { position: fixed; bottom: 20px; right: 20px; width: 320px; max-height:400px; background: rgba(2,6,23,0.95); backdrop-filter: blur(15px); border-radius:20px; display:flex; flex-direction:column; box-shadow:0 0 15px rgba(34,211,238,0.5); border:2px solid transparent; background-clip: padding-box; animation:borderGlow 3s infinite linear; }
+@keyframes borderGlow { 0% { border-image: linear-gradient(45deg,#22d3ee,#a855f7,#22d3ee) 1; } 50% { border-image: linear-gradient(135deg,#a855f7,#22d3ee,#a855f7) 1; } 100% { border-image: linear-gradient(45deg,#22d3ee,#a855f7,#22d3ee) 1; } }
+.chat-header { background:#02214a; padding:12px 15px; font-weight:600; color:#22d3ee; cursor:pointer; display:flex; justify-content:space-between; align-items:center; border-radius:15px 15px 0 0; }
+.chat-body { flex:1; padding:10px; display:flex; flex-direction:column; overflow-y:auto; gap:8px; }
+.chat-message { background:#0f172a; padding:8px 12px; border-radius:12px; color:#cbd5e1; align-self:flex-start; max-width:80%; }
+.chat-message.user { align-self:flex-end; background:#22d3ee; color:#020617; }
+.chat-input { display:flex; padding:10px; gap:10px; border-top:1px solid rgba(255,255,255,0.1); }
+.chat-input input { flex:1; border:none; border-radius:10px; padding:8px; background:#0f172a; color:white; }
+.chat-input button { background:#22d3ee; border:none; padding:8px 12px; border-radius:10px; color:#020617; cursor:pointer; font-weight:600; }
 
 /* ================= FOOTER ================= */
+footer { background:#020617; color:#cbd5e1; padding:20px; text-align:center; }
+.social-icons a { font-size:26px; margin:0 10px; color:#22d3ee; transition:0.3s; }
+.social-icons a:hover { color:#a855f7; transform:scale(1.2); }
 
-footer{
-    background:#020617;
-    color:#cbd5e1;
-    padding:20px;
-    text-align:center;
-}
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
 
-.social-icons a{
-    font-size:26px;
-    margin:0 10px;
-    color:#22d3ee;
-}
-
-/* ================= MOBILE RESPONSIVE ================= */
-
-@media (max-width: 1024px){
-    .introduction{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .child{
-        flex-direction:column;
-        text-align:center;
-    }
-}
-
-@media (max-width: 768px){
-
-    .hamburger{
-        display:block;
-    }
-
-    .list{
-        position:absolute;
-        top:5em;
-        right:0;
-        background:#020617;
-        flex-direction:column;
-        width:100%;
-        text-align:center;
-        display:none;
-        padding:20px 0;
-        gap:20px;
-    }
-
-    #menu-toggle:checked ~ .list{
-        display:flex;
-    }
-
-    .introduction img{
-        width:16em;
-        height:16em;
-    }
-}
-
-@media (max-width: 480px){
-
-    .introduction img{
-        width:13em;
-        height:13em;
-    }
-
-    h1{
-        font-size:26px;
-    }
+/* ================= MEDIA QUERIES ================= */
+@media(max-width:768px){
+    .hamburger { display:block; }
+    .list { position:absolute; top:5em; right:0; background:#020617; flex-direction:column; width:100%; display:none; padding:20px 0; gap:20px; text-align:center; }
+    #menu-toggle:checked ~ .list { display:flex; }
 }
 </style>
 </head>
-
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="channel">
-        <img src="./enoch.jpeg">
-        <h2>Enoch</h2>
-    </div>
-
+    <div class="logo" onclick="scrollToTop()">Enoch</div>
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="hamburger">☰</label>
-
     <div class="list">
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Contact</a>
+        <a href="#intro">Home</a>
+        <a href="#aboutme">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#getintouch">Contact</a>
     </div>
 </nav>
-<div class="introduction">
-    <img src="./enoch.jpeg">
-    <div class="aboutme">
+
+<!-- INTRO -->
+<section id="intro">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hi! I'm Enoch Amurawaiye, a frontend & aspiring fullstack developer. I craft modern, responsive, interactive websites.</p>
+    <div class="intro-buttons">
+        <button class="cool-btn">Hire Me</button>
+        <button class="cool-btn">Get In Touch</button>
+    </div>
+</section>
+
+<!-- ABOUT ME -->
+<section id="aboutme">
+    <div><img src="./enoch.jpeg" alt="Enoch"></div>
+    <div class="about-card">
         <h1>About Me</h1>
-        <p>
-            My name is Enoch Amurawaiye a frontend web developer and an upcoming
-            fullstack web developer, passionate about clean code and perfect design,
-            with html css i can create a perfect design weather its cloning apple
-            website, youtube clone and all that. I am a secondary school graduate
-            from the school named 'MERCY'T'COLLEGE' in a science department. For me
-            beign a fullstack developer is a dream coming through.
-        </p>
+        <p>Hi! I'm <strong>Enoch Amurawaiye</strong>, a passionate frontend web developer & aspiring fullstack developer. I love crafting modern, clean, and interactive websites. Creating flawless UI designs and turning ideas into reality is my passion.</p>
+        <p class="autograph">"Code is my canvas, and websites are my art."</p>
     </div>
-    <div class="button" style="position: relative;
-                               left: -60px;top: 140px;">
-       <button class="cool-btn">Hire Me</button>
-     <button class="cool-btn">Get In Touch</button>
-    </div>
-    
-</div>
-    </div>
-<h1 class="portifolios">My portifolio</h1>
-<div class="bgg">
-  <div class="child">
-    <a href="https://apple-ui-ux-clone.vercel.app/">
-        <img src="./apple.png">
-    </a>
-    <div class="title">
-        <h2>AppleUI Clone</h2>
-        <p>A UI clone of Apple website, built with HTML & CSS only</p>
-    </div>
-</div>
-</div>
-<div class="bgg">
-<div class="child">
-    <a href="https://notification-page-drab-nine.vercel.app/">
-        <img src="./notification.png">
-    </a>
-    <div class="title">
-        <h2>Notification Page</h2>
-        <p>A simple notification page crafted with HTML and styled with CSS</p>
-    </div>
-</div>
-</div>
- <div class="bgg">
-    <div class="child">
-    <div class="title">
-        <h2>Instagram login Page</h2>
-        <p>A simple HTML CSS clone of the Instagram login page</p>
-    </div>
-    <a href="/instagram/instagram_style.html">
-        <img src="./instagram.png">
-    </a>
-</div>
-</div>
-<div class="bgg"><div class="child">
-    <a href="https://exotic-resturant-uxmb.vercel.app/">
-        <img src="./resturant.png">
-    </a>
-    <div class="title">
-        <h2>Exotic Resturant</h2>
-        <p>A website for resturant named "Exotic Resturant" pure built with
-        HTML CSS and minimal JS</p>
-    </div>
-</div>
+</section>
 
- </div>
-<div class="bgg">
-<div class="child">
-    <div class="title">
-        <h2>Youtube Clone</h2>
-        <p>HTML CSS clone of youtube linking to the real youtube videos</p>
+<!-- PORTFOLIO -->
+<section id="portfolio">
+    <h1>My Portfolio</h1>
+    <div class="portfolio-grid">
+        <div class="card"><img src="./apple.png"><div class="card-content"><h2>Apple UI Clone</h2><p>HTML & CSS only</p><a href="https://apple-ui-ux-clone.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./notification.png"><div class="card-content"><h2>Notification Page</h2><p>HTML & CSS</p><a href="https://notification-page-drab-nine.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./resturant.png"><div class="card-content"><h2>Exotic Restaurant</h2><p>HTML, CSS & minimal JS</p><a href="https://exotic-resturant-uxmb.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./youtube.png"><div class="card-content"><h2>YouTube Clone</h2><p>HTML & CSS</p><a href="https://you-tube-clone-project-navy.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./moving-wheels.png"><div class="card-content"><h2>Moving Car</h2><p>CSS animation</p><a href="https://rolling-wheel.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./bento.png"><div class="card-content"><h2>Bento Grid</h2><p>CSS Grid layout</p><a href="https://penguin-three.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./penguin.png"><div class="card-content"><h2>Flappy Penguin</h2><p>HTML & CSS</p><a href="https://penguin-three.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./discord.png"><div class="card-content"><h2>Discord Login</h2><p>UI Design</p><a href="https://discord-login-delta.vercel.app/" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./facbook.png"><div class="card-content"><h2>Facebook Login</h2><p>UI Design</p><a href="/facebook/facebook_style.html" target="_blank">View Project</a></div></div>
+        <div class="card"><img src="./waitinglist.png"><div class="card-content"><h2>Waiting List</h2><p>Beautiful page</p><a href="https://waiting-list-gray.vercel.app/" target="_blank">View Project</a></div></div>
     </div>
-    <a href="/youtube/youtube.html">
-        <img src="./youtube.png">
-    </a>
-</div>
-</div>
-<div class="bgg">
-<div class="child">
-    <a href="/free_code_camp.html/rollingwhell4.html">
-        <img src="./moving-wheels.png">
-    </a>
-    <div class="title">
-        <h2>Moving Car</h2>
-        <p>This is a CSS animation work insipired from a freeCodeCamp project
-        "The Rolling Wheel"</p>
-    </div>
-</div>
-</div>
- <div class="bgg">
-<div class="child">
-    <div class="title">
-        <h2>Bento Grid</h2>
-        <p>This a bento grid, using grid has the main man in the CSS styling</p>
-    </div>
-    <a href="/frontend mentor/bento_grid.html">
-        <img src="./bento.png">
-    </a>
-</div>
-</div>
-<div class="bgg">
-<div class="child">
-    <a href="/free_code_camp.html/pengiun.html">
-        <img src="./penguin.png">
-    </a>
-    <div class="title">
-        <h2>Flappy Penguin</h2>
-        <p>A penguin with Flappy wings built with HTML CSS only</p>
-    </div>
-</div>
-</div>
-<div class="bgg">
-<div class="child">
-    <div class="title">
-        <h2>Discord login</h2>
-        <p>This the UI design for discord login page</p>
-    </div>
-    <a href="/discord/discord.html">
-        <img src="./discord.png">
-    </a>
-</div>
- </div>
- <div class="bgg">
+</section>
 
-<div class="child">
-    <a href="/facebook/facebook_style.html">
-        <img src="./facbook.png">
-    </a>
-    <div class="title">
-        <h2>Facebook login</h2>
-        <p>This the UI design for discord login page</p>
-    </div>
-</div>
-</div>
-<div class="bgg">
-<div class="child">
-    <div class="title">
-        <h2>Waiting list</h2>
-        <p>This a Waiting list web page with beautifuly crafted with HTML CSS</p>
-    </div>
-    <a href="/free_code_camp.html/waiting-list.html">
-        <img src="./waitinglist.png">
-    </a>
-</div>
-</div>
-<!-- CONTACT SECTION -->
-<div class="getintouch">
-    <div class="get"><h1>Get in touch</h1></div>
-    <div class="message">
-        <input type="email" placeholder="Email" class="medium"><br>
-        <input type="username" placeholder="Username" class="medium"><br>
-        <input type="phone no" placeholder="Phone Number" class="medium"><br>
-           <textarea name="" id="" placeholder="message"></textarea>
-        <br>
+<!-- GET IN TOUCH -->
+<section id="getintouch">
+    <div class="contact-card">
+        <h1>Get in Touch</h1>
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Phone Number">
+        <textarea placeholder="Message"></textarea>
         <button class="cool-btn">Send Message</button>
     </div>
+</section>
+
+<!-- CHAT BOX -->
+<div class="chat-box">
+    <div class="chat-header">Chat with me 💬</div>
+    <div class="chat-body">
+        <div class="chat-message">Hi! How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" placeholder="Type your message...">
+        <button>Send</button>
+    </div>
 </div>
- 
-  
+
+<!-- FOOTER -->
 <footer>
     <div class="social-icons">
         <a href="https://www.facebook.com" target="_blank">📘</a>
@@ -471,8 +173,58 @@ footer{
         <a href="https://www.instagram.com" target="_blank">📸</a>
         <a href="https://wa.me/2348122569014" target="_blank">💬</a>
     </div>
-    <h3>©️2025 Enoch all right reserve</h3>
+    <h3>©️2025 Enoch. All rights reserved</h3>
 </footer>
 
+<script>
+// Smooth scroll
+document.querySelectorAll('.list a').forEach(link=>{
+    link.addEventListener('click', e=>{
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+        document.getElementById('menu-toggle').checked=false;
+    });
+});
+
+// Navbar shrink
+window.addEventListener('scroll',()=>{ document.querySelector('nav').classList.toggle('shrink',window.scrollY>50); });
+
+// Chat toggle & replies
+const chatHeader = document.querySelector('.chat-header');
+const chatBody = document.querySelector('.chat-body');
+const chatInput = document.querySelector('.chat-input input');
+const chatButton = document.querySelector('.chat-input button');
+
+chatHeader.addEventListener('click',()=>chatBody.classList.toggle('active'));
+
+chatButton.addEventListener('click',()=>{
+    const userMsg = chatInput.value.trim();
+    if(!userMsg) return;
+    const userDiv = document.createElement('div');
+    userDiv.className = 'chat-message user';
+    userDiv.textContent = userMsg;
+    chatBody.appendChild(userDiv);
+    chatInput.value='';
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    setTimeout(()=>{
+        const botDiv = document.createElement('div');
+        botDiv.className = 'chat-message';
+        botDiv.textContent = "Thanks for your message! I'll get back to you soon.";
+        chatBody.appendChild(botDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    },800);
+});
+
+// Fade-in on scroll for portfolio and about
+const faders=document.querySelectorAll('#portfolio .card,#getintouch,#aboutme');
+window.addEventListener('scroll',()=>{
+    faders.forEach(el=>{
+        const rect=el.getBoundingClientRect();
+        if(rect.top<window.innerHeight-100){ el.style.opacity=1; el.style.transform='translateY(0)'; }
+    });
+});
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
+</script>
 </body>
 </html>
