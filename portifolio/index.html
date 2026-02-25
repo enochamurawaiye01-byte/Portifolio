@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My portifolio</title>
+<style>
+body{
+    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    font-family: "Outfit", sans-serif;
+    margin:0;
+    color:#e2e8f0;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    background:rgba(2,6,23,0.95);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:5em;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:0 20px;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.channel{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-size:1.5em;
+}
+
+.channel img{
+    height:45px;
+    border-radius:50%;
+}
+
+.channel h2{
+    color:#22d3ee;
+}
+
+.list{
+    display:flex;
+    gap:40px;
+    position: relative;
+    left: -40px;
+}
+
+.list a{
+    color:#cbd5e1;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.list a:hover{
+    color:#22d3ee;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+.hamburger{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    color:#22d3ee;
+    margin-left: 50px;
+    position: relative;
+     right:40px ;
+}
+
+/* ================= INTRO ================= */
+
+.introduction{
+    background:#020617;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    padding:140px 40px 60px;
+    flex-wrap:wrap;
+}
+
+.introduction img{
+    height:25em;
+    width:25em;
+    border-radius:200px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.introduction img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(34,211,238,0.6);
+}
+
+.aboutme{
+    max-width:600px;
+}
+
+.aboutme p{
+    font-size:18px;
+    line-height:28px;
+    color:#cbd5e1;
+}
+
+.cool-btn{
+    background: linear-gradient(45deg, #22d3ee, #a855f7);
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:40px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s ease;
+    margin-top:20px;
+}
+
+.cool-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(168,85,247,0.6);
+}
+
+.portifolios{
+    text-align:center;
+    margin-top:60px;
+}
+
+.bgg{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    width:90%;
+    min-height:330px;
+    border-radius:10px;
+    margin:40px auto;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.4s ease;
+}
+
+.bgg:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(34,211,238,0.4);
+}
+
+.child{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.child img{
+    width:500px;
+    max-width:100%;
+    height:auto;
+    border-radius:10px;
+}
+
+.title p{
+    max-width:300px;
+    color:#94a3b8;
+}
+
+.getintouch{
+    background:#020617;
+    padding:60px 20px;
+    margin-top:60px;
+}
+
+.get{
+    display:flex;
+    justify-content:center;
+}
+
+.get h1{
+    color:#22d3ee;
+}
+
+.message{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.medium,
+textarea{
+    width:90%;
+    max-width:500px;
+    margin-bottom:10px;
+    background:#0f172a;
+    border:1px solid #334155;
+    color:white;
+    border-radius:8px;
+    padding:10px;
+}
+
+textarea{
+    height:100px;
+}
+
+.medium:focus, textarea:focus{
+    outline:none;
+    border:1px solid #22d3ee;
+    box-shadow:0 0 10px rgba(34,211,238,0.5);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#020617;
+    color:#cbd5e1;
+    padding:20px;
+    text-align:center;
+}
+
+.social-icons a{
+    font-size:26px;
+    margin:0 10px;
+    color:#22d3ee;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 1024px){
+    .introduction{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .child{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+@media (max-width: 768px){
+
+    .hamburger{
+        display:block;
+    }
+
+    .list{
+        position:absolute;
+        top:5em;
+        right:0;
+        background:#020617;
+        flex-direction:column;
+        width:100%;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+        gap:20px;
+    }
+
+    #menu-toggle:checked ~ .list{
+        display:flex;
+    }
+
+    .introduction img{
+        width:16em;
+        height:16em;
+    }
+}
+
+@media (max-width: 480px){
+
+    .introduction img{
+        width:13em;
+        height:13em;
+    }
+
+    h1{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="channel">
+        <img src="./enoch.jpeg">
+        <h2>Enoch</h2>
+    </div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <div class="list">
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Contact</a>
+    </div>
+</nav>
+<div class="introduction">
+    <img src="./enoch.jpeg">
+    <div class="aboutme">
+        <h1>About Me</h1>
+        <p>
+            My name is Enoch Amurawaiye a frontend web developer and an upcoming
+            fullstack web developer, passionate about clean code and perfect design,
+            with html css i can create a perfect design weather its cloning apple
+            website, youtube clone and all that. I am a secondary school graduate
+            from the school named 'MERCY'T'COLLEGE' in a science department. For me
+            beign a fullstack developer is a dream coming through.
+        </p>
+    </div>
+    <div class="button" style="position: relative;
+                               left: -60px;top: 140px;">
+       <button class="cool-btn">Hire Me</button>
+     <button class="cool-btn">Get In Touch</button>
+    </div>
+    
+</div>
+    </div>
+<h1 class="portifolios">My portifolio</h1>
+<div class="bgg">
+  <div class="child">
+    <a href="https://apple-ui-ux-clone.vercel.app/">
+        <img src="./apple.png">
+    </a>
+    <div class="title">
+        <h2>AppleUI Clone</h2>
+        <p>A UI clone of Apple website, built with HTML & CSS only</p>
+    </div>
+</div>
+</div>
+<div class="bgg">
+<div class="child">
+    <a href="https://notification-page-drab-nine.vercel.app/">
+        <img src="./notification.png">
+    </a>
+    <div class="title">
+        <h2>Notification Page</h2>
+        <p>A simple notification page crafted with HTML and styled with CSS</p>
+    </div>
+</div>
+</div>
+ <div class="bgg">
+    <div class="child">
+    <div class="title">
+        <h2>Instagram login Page</h2>
+        <p>A simple HTML CSS clone of the Instagram login page</p>
+    </div>
+    <a href="/instagram/instagram_style.html">
+        <img src="./instagram.png">
+    </a>
+</div>
+</div>
+<div class="bgg"><div class="child">
+    <a href="https://exotic-resturant-uxmb.vercel.app/">
+        <img src="./resturant.png">
+    </a>
+    <div class="title">
+        <h2>Exotic Resturant</h2>
+        <p>A website for resturant named "Exotic Resturant" pure built with
+        HTML CSS and minimal JS</p>
+    </div>
+</div>
+
+ </div>
+<div class="bgg">
+<div class="child">
+    <div class="title">
+        <h2>Youtube Clone</h2>
+        <p>HTML CSS clone of youtube linking to the real youtube videos</p>
+    </div>
+    <a href="/youtube/youtube.html">
+        <img src="./youtube.png">
+    </a>
+</div>
+</div>
+<div class="bgg">
+<div class="child">
+    <a href="/free_code_camp.html/rollingwhell4.html">
+        <img src="./moving-wheels.png">
+    </a>
+    <div class="title">
+        <h2>Moving Car</h2>
+        <p>This is a CSS animation work insipired from a freeCodeCamp project
+        "The Rolling Wheel"</p>
+    </div>
+</div>
+</div>
+ <div class="bgg">
+<div class="child">
+    <div class="title">
+        <h2>Bento Grid</h2>
+        <p>This a bento grid, using grid has the main man in the CSS styling</p>
+    </div>
+    <a href="/frontend mentor/bento_grid.html">
+        <img src="./bento.png">
+    </a>
+</div>
+</div>
+<div class="bgg">
+<div class="child">
+    <a href="/free_code_camp.html/pengiun.html">
+        <img src="./penguin.png">
+    </a>
+    <div class="title">
+        <h2>Flappy Penguin</h2>
+        <p>A penguin with Flappy wings built with HTML CSS only</p>
+    </div>
+</div>
+</div>
+<div class="bgg">
+<div class="child">
+    <div class="title">
+        <h2>Discord login</h2>
+        <p>This the UI design for discord login page</p>
+    </div>
+    <a href="/discord/discord.html">
+        <img src="./discord.png">
+    </a>
+</div>
+ </div>
+ <div class="bgg">
+
+<div class="child">
+    <a href="/facebook/facebook_style.html">
+        <img src="./facbook.png">
+    </a>
+    <div class="title">
+        <h2>Facebook login</h2>
+        <p>This the UI design for discord login page</p>
+    </div>
+</div>
+</div>
+<div class="bgg">
+<div class="child">
+    <div class="title">
+        <h2>Waiting list</h2>
+        <p>This a Waiting list web page with beautifuly crafted with HTML CSS</p>
+    </div>
+    <a href="/free_code_camp.html/waiting-list.html">
+        <img src="./waitinglist.png">
+    </a>
+</div>
+</div>
+<!-- CONTACT SECTION -->
+<div class="getintouch">
+    <div class="get"><h1>Get in touch</h1></div>
+    <div class="message">
+        <input type="email" placeholder="Email" class="medium"><br>
+        <input type="username" placeholder="Username" class="medium"><br>
+        <input type="phone no" placeholder="Phone Number" class="medium"><br>
+           <textarea name="" id="" placeholder="message"></textarea>
+        <br>
+        <button class="cool-btn">Send Message</button>
+    </div>
+</div>
+ 
+  
+<footer>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank">📘</a>
+        <a href="mailto:example@email.com">📧</a>
+        <a href="https://twitter.com" target="_blank">🐦</a>
+        <a href="https://www.instagram.com" target="_blank">📸</a>
+        <a href="https://wa.me/2348122569014" target="_blank">💬</a>
+    </div>
+    <h3>©️2025 Enoch all right reserve</h3>
+</footer>
+
+</body>
+</html>

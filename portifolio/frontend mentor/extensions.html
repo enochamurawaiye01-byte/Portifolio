@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extensions Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Noto Sans", sans-serif;
+    background-color: hsl(227, 75%, 14%);
+}
+
+.app-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.app-header-inner {
+    width: 100%;
+    max-width: 1000px;
+    height: 60px;
+    background-color: hsl(226, 25%, 17%);
+    border-radius: 15px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.brand-logo {
+    height: 45px;
+}
+
+.theme-switch {
+    width: 40px;
+    height: 40px;
+    background-color: hsl(225, 23%, 24%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-switch img {
+    width: 20px;
+}
+
+.toolbar {
+    max-width: 1000px;
+    margin: 40px auto 20px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar-title {
+    color: white;
+    font-size: 28px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: hsl(226, 25%, 17%);
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: hsl(3, 86%, 64%);
+    border-color: transparent;
+}
+
+.extensions-grid {
+    max-width: 1100px;
+    margin: 20px auto 60px;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.extension-card {
+    background-color: hsl(225, 23%, 24%);
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+}
+
+.card-header {
+    display: flex;
+    gap: 15px;
+}
+
+.card-icon {
+    width: 40px;
+}
+
+.card-title {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-description {
+    color: hsl(0, 0%, 78%);
+    font-size: 13px;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.remove-btn {
+    padding: 6px 16px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.remove-btn:hover {
+    background-color: hsl(3, 86%, 64%);
+    border-color: transparent;
+}
+
+.status-toggle {
+    width: 44px;
+    height: 24px;
+    background-color: #475569;
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+}
+
+.status-toggle::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s;
+}
+
+.status-toggle.active {
+    background-color: #fb7185;
+}
+
+.status-toggle.active::after {
+    left: 23px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+    <div class="app-header-inner">
+        <div class="brand">
+            <img src="/Frontend mentor/logooo.png" class="brand-logo">
+            <h3>Extensions</h3>
+        </div>
+        <div class="theme-switch">
+            <img src="/Frontend mentor/FEM images/images/icon-sun.svg">
+        </div>
+    </div>
+</header>
+
+<section class="toolbar">
+    <h1 class="toolbar-title">Extension List</h1>
+    <div class="filters">
+        <button class="filter-btn">All</button>
+        <button class="filter-btn">Active</button>
+        <button class="filter-btn">Inactive</button>
+    </div>
+</section>
+
+<main class="extensions-grid">
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-devlens.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">DevLens</h3>
+                <p class="card-description">Quickly inspect page layouts and visualize element boundaries</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-style-spy.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">StyleSpy</h3>
+                <p class="card-description">Instantly analyze and copy CSS from any webpage element</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-speed-boost.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">SpeedBoost</h3>
+                <p class="card-description">Optimizes browser usage to accelerate page loading</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-json-wizard.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">JSONWizard</h3>
+                <p class="card-description">Format, validate, and prettify JSON responses in-browser</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-master-pro.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">TabMaster Pro</h3>
+                <p class="card-description">Organizes browser tabs into groups and sessions</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-viewport-buddy.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">ViewportBuddy</h3>
+                <p class="card-description">Simulates screen resolutions directly within the browser</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-markup-notes.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">Markup Notes</h3>
+                <p class="card-description">Annotate and debug webpages collaboratively</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-grid-guides.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">GridGuide</h3>
+                <p class="card-description">Overlay customizable grids and alignment guides</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-palette-picker.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">Palette Picker</h3>
+                <p class="card-description">Extract color palettes from webpages instantly</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-link-checker.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">LinkChecker</h3>
+                <p class="card-description">Scan and highlight broken links on pages</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-dom-snapshot.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">DOM Snapshot</h3>
+                <p class="card-description">Capture and export DOM structures quickly</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+    <div class="extension-card">
+        <div class="card-header">
+            <img src="/browser-extensions-manager-ui-main/assets/images/logo-console-plus.svg" class="card-icon">
+            <div>
+                <h3 class="card-title">ConsolePlus</h3>
+                <p class="card-description">Enhanced developer console with advanced filtering</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="remove-btn">Remove</button>
+            <div class="status-toggle active"></div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
+

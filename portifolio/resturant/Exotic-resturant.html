@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exotic Restaurant</title>
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #3b1f12;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(59, 31, 18, 0.95);
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fdfbd4;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 22px;
+      border: 2px solid #c05800;
+      border-radius: 0 0 20px 20px;
+      position: relative;
+    }
+
+    .steam {
+      position: absolute;
+      top: -10px;
+      width: 3px;
+      height: 10px;
+      background: #c05800;
+      border-radius: 5px;
+      animation: steam 2s infinite ease-in-out;
+    }
+
+    .steam.one { left: 8px; }
+    .steam.two { left: 16px; animation-delay: .3s; }
+    .steam.three { left: 24px; animation-delay: .6s; }
+
+    .logo span {
+      color: #c05800;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav ul li a {
+      text-decoration: none;
+      color: #fdfbd4;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background-color: #c05800;
+      transition: width 0.3s ease;
+    }
+
+    .nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO SPLIT */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 90px;
+    }
+
+    /* LEFT (TEXT CENTERED) */
+    .hero-text {
+      background-color: #3b1f12;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px;
+      animation: slideInLeft 1.2s ease forwards;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      color: #fdfbd4;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #c05800;
+    }
+
+    .hero-text p {
+      max-width: 520px;
+      color: #e6d9c5;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 14px 34px;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .btn.primary {
+      background-color: #c05800;
+      color: #fdfbd4;
+    }
+
+    .btn.primary:hover {
+      background-color: #a94b00;
+      transform: translateY(-5px);
+    }
+
+    .btn.secondary {
+      border: 2px solid #fdfbd4;
+      color: #fdfbd4;
+    }
+
+    .btn.secondary:hover {
+      background-color: #fdfbd4;
+      color: #3b1f12;
+      transform: translateY(-5px);
+    }
+
+    /* RIGHT SLIDER */
+    .hero-slider {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      width: 600%;
+      height: 100%;
+      animation: slideShow 30s infinite;
+    }
+
+    .slide {
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* NIGERIAN DISH IMAGES */
+    .slide1 { background-image: url("https://images.unsplash.com/photo-1625944525533-473f1a5df5c8"); } /* Jollof */
+    .slide2 { background-image: url("https://images.unsplash.com/photo-1606787366850-de6330128bfc"); } /* Egusi */
+    .slide3 { background-image: url("https://images.unsplash.com/photo-1544025162-d76694265947"); } /* Shawarma */
+    .slide4 { background-image: url("https://images.unsplash.com/photo-1551218808-94e220e084d2"); } /* Amala */
+    .slide5 { background-image: url("https://images.unsplash.com/photo-1605475128032-7486c3f5fdd2"); } /* Fried rice */
+    .slide6 { background-image: url("https://images.unsplash.com/photo-1598514982205-fc2e43d6d97b"); } /* Banga */
+
+    /* ANIMATIONS */
+    @keyframes slideShow {
+      0%, 15%   { transform: translateX(0); }
+      20%, 35%  { transform: translateX(-100%); }
+      40%, 55%  { transform: translateX(-200%); }
+      60%, 75%  { transform: translateX(-300%); }
+      80%, 90%  { transform: translateX(-400%); }
+      95%,100%  { transform: translateX(-500%); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes steam {
+      0% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-6px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-slider {
+        height: 300px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon">
+          <div class="steam one"></div>
+          <div class="steam two"></div>
+          <div class="steam three"></div>
+        </div>
+        Exotic <span>Restaurant</span>
+      </div>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>Authentic <span>Nigerian</span> Cuisine</h1>
+      <p>
+        From party jollof and rich egusi to amala, banga soup,
+        shawarma, and fried rice — we serve Nigeria’s finest
+        dishes with pride and excellence.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn primary">View Menu</a>
+        <a href="#" class="btn secondary">Reserve Table</a>
+      </div>
+    </div>
+
+    <div class="hero-slider">
+      <div class="slides">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <div class="slide slide4"></div>
+        <div class="slide slide5"></div>
+        <div class="slide slide6"></div>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>

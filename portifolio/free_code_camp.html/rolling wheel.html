@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferris Wheel</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .wheel {
+            width: 500px;
+            height: 500px;
+            border: 5px solid black;
+            border-radius: 50%;
+            position: relative;
+            animation: wheel 10s linear infinite;
+        }
+
+        .spoke {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0% 0%;
+        }
+
+        .line {
+            width: 250px;
+            height: 2px;
+            background-color: black;
+        }
+
+        .cabin {
+            width: 60px;
+            height: 60px;
+            background-color: green;
+            border: 2px solid black;
+            position: absolute;
+            right: 150%;
+            top: 3300%;
+            transform-origin: 50% 0%;
+            animation: cabins 10s linear infinite;
+        }
+
+        .spoke:nth-child(1) { transform: rotate(0deg); }
+        .spoke:nth-child(2) { transform: rotate(60deg); }
+        .spoke:nth-child(3) { transform: rotate(120deg); }
+        .spoke:nth-child(4) { transform: rotate(180deg); }
+        .spoke:nth-child(5) { transform: rotate(240deg); }
+        .spoke:nth-child(6) { transform: rotate(300deg); }
+
+        @keyframes wheel {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes cabins {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wheel">
+        <div class="spoke">
+            <div class="line"></div>
+            <div class="cabin"></div>
+        </div>
+
+        <div class="spoke">
+            <div class="line"></div>
+            <div class="cabin"></div>
+        </div>
+
+        <div class="spoke">
+            <div class="line"></div>
+            <div class="cabin"></div>
+        </div>
+
+        <div class="spoke">
+            <div class="line"></div>
+            <div class="cabin"></div>
+        </div>
+
+        <div class="spoke">
+            <div class="line"></div>
+            <div class="cabin"></div>
+        </div>
+
+        <div class="spoke">
+            <div class="line"></div>
+            <div class="cabin"></div>
+        </div>
+    </div>
+</body>
+</html>

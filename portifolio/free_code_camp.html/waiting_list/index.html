@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting List</title>
+</head>
+
+<body style="
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(270deg, #4f46e5, #9333ea, #2563eb);
+    background-size:600% 600%;
+    animation: gradientMove 12s ease infinite;
+    font-family: Arial, Helvetica, sans-serif;
+">
+
+    <style>
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatCard {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <div style="
+        background:#ffffff;
+        width:100%;
+        max-width:420px;
+        padding:36px;
+        border-radius:18px;
+        text-align:center;
+        box-shadow:0 25px 50px rgba(0,0,0,0.25);
+        animation: floatCard 5s ease-in-out infinite, fadeIn 1s ease forwards;
+    ">
+
+        <h1 style="
+            margin-top:0;
+            font-size:30px;
+            color:#111827;
+            animation: fadeIn 1.2s ease forwards;
+        ">
+            🚀 Get Early Access
+        </h1>
+
+        <p style="
+            color:#6b7280;
+            font-size:16px;
+            margin-bottom:28px;
+            animation: fadeIn 1.4s ease forwards;
+        ">
+            Join our exclusive waiting list and stay ahead.
+        </p>
+
+        <form>
+            <input
+                type="text"
+                placeholder="Your Name"
+                required
+                style="
+                    width:100%;
+                    padding:14px;
+                    margin-bottom:16px;
+                    border-radius:12px;
+                    border:1px solid #d1d5db;
+                    font-size:16px;
+                    outline:none;
+                    transition: all 0.3s ease;
+                "
+                onfocus="this.style.borderColor='#4f46e5'; this.style.boxShadow='0 0 0 3px rgba(79,70,229,0.3)'"
+                onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'"
+            >
+
+            <input
+                type="email"
+                placeholder="Your Email Address"
+                required
+                style="
+                    width:100%;
+                    padding:14px;
+                    margin-bottom:22px;
+                    border-radius:12px;
+                    border:1px solid #d1d5db;
+                    font-size:16px;
+                    outline:none;
+                    transition: all 0.3s ease;
+                "
+                onfocus="this.style.borderColor='#4f46e5'; this.style.boxShadow='0 0 0 3px rgba(79,70,229,0.3)'"
+                onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'"
+            >
+
+            <button
+                type="submit"
+                style="
+                    width:100%;
+                    padding:15px;
+                    border:none;
+                    border-radius:14px;
+                    background:linear-gradient(135deg, #4f46e5, #6366f1);
+                    color:#ffffff;
+                    font-size:16px;
+                    font-weight:bold;
+                    cursor:pointer;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                "
+                onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 30px rgba(79,70,229,0.4)'"
+                onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'"
+            >
+                Join the Waiting List
+            </button>
+        </form>
+
+        <p style="
+            margin-top:22px;
+            font-size:14px;
+            color:#9ca3af;
+            animation: fadeIn 1.6s ease forwards;
+        ">
+            🔒 Your information is safe. No spam.
+        </p>
+
+    </div>
+
+</body>
+</html>

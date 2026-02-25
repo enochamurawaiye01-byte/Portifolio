@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Car</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #eaeaea;
+        }
+
+        .road {
+            position: absolute;
+            bottom: 80px;
+            width: 100%;
+            height: 6px;
+            background: #333;
+        }
+
+        .car {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            animation: move 6s ease-in-out infinite alternate;
+        }
+
+        .car-body {
+            width: 420px;
+            height: 90px;
+            background: #d32f2f;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .car-top {
+            width: 200px;
+            height: 60px;
+            background: #b71c1c;
+            position: absolute;
+            top: -50px;
+            left: 110px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .wheel-container {
+            position: absolute;
+            bottom: -55px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        .wheel {
+            width: 90px;
+            height: 90px;
+            border: 6px solid black;
+            border-radius: 50%;
+            position: relative;
+            background: #fff;
+            animation: rotate 1s linear infinite;
+        }
+
+        .line {
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: black;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0% 0%;
+        }
+
+        .line:nth-child(1) {
+            transform: rotate(90deg);
+        }
+
+        .line:nth-child(2) {
+            transform: rotate(180deg);
+        }
+
+        .line:nth-child(3) {
+            transform: rotate(270deg);
+        }
+
+        .line:nth-child(4) {
+            transform: rotate(360deg);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes move {
+            from {
+                left: 0;
+            }
+            to {
+                left: calc(100% - 420px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="road"></div>
+
+    <div class="car">
+        <div class="car-body">
+            <div class="car-top"></div>
+
+            <div class="wheel-container">
+                <div class="wheel">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="wheel">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
