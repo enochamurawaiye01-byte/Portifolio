@@ -3,228 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enoch | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-/* ================= GLOBAL ================= */
-* { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
-body { font-family:'Outfit', sans-serif; background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a); color:#e2e8f0; transition:0.5s; }
-a { text-decoration:none; }
-.cool-btn { background: linear-gradient(45deg,#22d3ee,#a855f7); color:white; padding:12px 25px; border:none; border-radius:40px; font-weight:600; cursor:pointer; transition:0.4s ease; }
-.cool-btn:hover { transform: scale(1.1); box-shadow:0 0 25px rgba(34,211,238,0.6); }
+<title>Enoch Portfolio</title>
 
-/* ================= NAVIGATION ================= */
-nav { position:fixed; top:0; left:0; width:100%; height:5em; display:flex; justify-content:space-between; align-items:center; background: rgba(2,6,23,0.95); backdrop-filter:blur(12px); padding:0 2em; z-index:1000; border-bottom:1px solid rgba(255,255,255,0.1); transition:0.3s; }
-nav.shrink { height:4em; }
-.logo { font-size:1.8em; font-weight:700; color:#22d3ee; cursor:pointer; transition:0.3s; }
-#menu-toggle { display:none; }
-.hamburger { display:none; font-size:2em; cursor:pointer; color:#22d3ee; }
-.list { display:flex; gap:2em; }
-.list a { color:#cbd5e1; font-weight:500; transition:0.3s; }
-.list a:hover { color:#22d3ee; }
-
-/* ================= INTRO ================= */
-#intro { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:140px 20px 60px; text-align:center; gap:20px; opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards 0.2s; }
-#intro h1 { font-size:2.5em; color:#22d3ee; }
-#intro p { max-width:700px; color:#cbd5e1; line-height:1.8em; }
-.intro-buttons { display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
-
-/* ================= ABOUT ME ================= */
-#aboutme { padding:80px 20px; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:40px; max-width:1200px; margin:0 auto; }
-#aboutme div { opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards; }
-#aboutme img { width:300px; height:300px; border-radius:200px; object-fit:cover; transition:0.5s; box-shadow:0 0 30px rgba(34,211,238,0.5); }
-.about-card { flex:1; min-width:250px; background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); padding:30px 25px; border-radius:20px; box-shadow:0 0 20px rgba(34,211,238,0.3); }
-.about-card h1 { color:#22d3ee; margin-bottom:15px; }
-.about-card p { color:#cbd5e1; line-height:1.7em; }
-.about-card p.autograph { color:#22d3ee; font-style:italic; margin-top:20px; }
-
-/* ================= PORTFOLIO CARDS ================= */
-#portfolio { padding:60px 20px; max-width:1200px; margin:0 auto; }
-#portfolio h1 { text-align:center; font-size:2.5em; margin-bottom:40px; color:#22d3ee; opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards 0.2s; }
-.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
-.card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius:15px; overflow:hidden; transition:0.5s; border:1px solid rgba(255,255,255,0.08); cursor:pointer; opacity:0; transform:translateY(30px); }
-.card:hover { transform:translateY(-10px) scale(1.05); box-shadow:0 10px 30px rgba(34,211,238,0.5); }
-.card img { width:100%; height:200px; object-fit:cover; transition:0.4s; }
-.card img:hover { transform: scale(1.08); }
-.card-content { padding:20px; transition:0.3s; }
-.card-content h2 { color:#22d3ee; margin-bottom:10px; }
-.card-content p { color:#cbd5e1; line-height:1.6em; }
-.card-content a { color:#a855f7; font-weight:600; transition:0.3s; }
-.card-content a:hover { text-decoration:underline; }
-
-/* ================= CONTACT ================= */
-#getintouch { display:flex; justify-content:center; align-items:center; padding:80px 20px; }
-.contact-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius:20px; padding:50px 30px; max-width:600px; width:100%; box-shadow:0 0 20px rgba(34,211,238,0.3); border:1px solid rgba(255,255,255,0.1); transition:0.5s; }
-.contact-card:hover { box-shadow:0 0 40px rgba(34,211,238,0.6); }
-.contact-card h1 { color:#22d3ee; text-align:center; margin-bottom:30px; }
-.contact-card input, .contact-card textarea { width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #334155; background:#0f172a; color:white; transition:0.3s; }
-.contact-card input:focus, .contact-card textarea:focus { outline:none; border:1px solid #22d3ee; box-shadow:0 0 15px rgba(34,211,238,0.5); }
-.contact-card textarea { height:120px; }
-
-/* ================= CHAT BOX ================= */
-.chat-box { position: fixed; bottom: 20px; right: 20px; width: 320px; max-height:400px; background: rgba(2,6,23,0.95); backdrop-filter: blur(15px); border-radius:20px; display:flex; flex-direction:column; box-shadow:0 0 15px rgba(34,211,238,0.5); border:2px solid transparent; background-clip: padding-box; animation:borderGlow 3s infinite linear; }
-@keyframes borderGlow { 0% { border-image: linear-gradient(45deg,#22d3ee,#a855f7,#22d3ee) 1; } 50% { border-image: linear-gradient(135deg,#a855f7,#22d3ee,#a855f7) 1; } 100% { border-image: linear-gradient(45deg,#22d3ee,#a855f7,#22d3ee) 1; } }
-.chat-header { background:#02214a; padding:12px 15px; font-weight:600; color:#22d3ee; cursor:pointer; display:flex; justify-content:space-between; align-items:center; border-radius:15px 15px 0 0; }
-.chat-body { flex:1; padding:10px; display:flex; flex-direction:column; overflow-y:auto; gap:8px; }
-.chat-message { background:#0f172a; padding:8px 12px; border-radius:12px; color:#cbd5e1; align-self:flex-start; max-width:80%; }
-.chat-message.user { align-self:flex-end; background:#22d3ee; color:#020617; }
-.chat-input { display:flex; padding:10px; gap:10px; border-top:1px solid rgba(255,255,255,0.1); }
-.chat-input input { flex:1; border:none; border-radius:10px; padding:8px; background:#0f172a; color:white; }
-.chat-input button { background:#22d3ee; border:none; padding:8px 12px; border-radius:10px; color:#020617; cursor:pointer; font-weight:600; }
-
-/* ================= FOOTER ================= */
-footer { background:#020617; color:#cbd5e1; padding:20px; text-align:center; }
-.social-icons a { font-size:26px; margin:0 10px; color:#22d3ee; transition:0.3s; }
-.social-icons a:hover { color:#a855f7; transform:scale(1.2); }
-
-/* ================= ANIMATIONS ================= */
-@keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
-
-/* ================= MEDIA QUERIES ================= */
-@media(max-width:768px){
-    .hamburger { display:block; }
-    .list { position:absolute; top:5em; right:0; background:#020617; flex-direction:column; width:100%; display:none; padding:20px 0; gap:20px; text-align:center; }
-    #menu-toggle:checked ~ .list { display:flex; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- CURSOR -->
+<div id="cursor"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <h1>ENOCH</h1>
+</div>
+
 <!-- NAV -->
-<nav>
-    <div class="logo" onclick="scrollToTop()">Enoch</div>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">☰</label>
-    <div class="list">
-        <a href="#intro">Home</a>
-        <a href="#aboutme">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#getintouch">Contact</a>
-    </div>
+<nav class="nav">
+  <h2 class="logo">ENOCH</h2>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
-<!-- INTRO -->
-<section id="intro">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hi! I'm Enoch Amurawaiye, a frontend & aspiring fullstack developer. I craft modern, responsive, interactive websites.</p>
-    <div class="intro-buttons">
-        <button class="cool-btn">Hire Me</button>
-        <button class="cool-btn">Get In Touch</button>
+<!-- HERO SLIDER -->
+<section class="hero" id="home">
+
+  <div class="slides">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600" alt="">
+      <div class="overlay"></div>
+
+      <div class="content">
+        <h1>Hello, I'm Enoch</h1>
+        <h3>I am a <span id="typing"></span></h3>
+        <p>
+          I am a passionate frontend and backend developer focused on building clean,
+          responsive, and high-performing web applications that deliver seamless user experiences.
+        </p>
+        <button onclick="location.href='#projects'">View Projects</button>
+      </div>
     </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600" alt="">
+      <div class="overlay"></div>
+
+      <div class="content">
+        <h1>Creative UI/UX Designer</h1>
+        <p>
+          I design intuitive and visually engaging user interfaces that improve user experience,
+          accessibility, and interaction across different platforms and devices.
+        </p>
+        <button onclick="location.href='#about'">About Me</button>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600" alt="">
+      <div class="overlay"></div>
+
+      <div class="content">
+        <h1>Problem Solver</h1>
+        <p>
+          I analyze complex challenges and transform them into efficient, scalable, and
+          user-friendly solutions using clean and maintainable code.
+        </p>
+        <button><a href="https://wa.me/2348122569014">Contact Me</a></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DOTS -->
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
 </section>
 
-<!-- ABOUT ME -->
-<section id="aboutme">
-    <div><img src="./enoch.jpeg" alt="Enoch"></div>
-    <div class="about-card">
-        <h1>About Me</h1>
-        <p>Hi! I'm <strong>Enoch Amurawaiye</strong>, a passionate frontend web developer & aspiring fullstack developer. I love crafting modern, clean, and interactive websites. Creating flawless UI designs and turning ideas into reality is my passion.</p>
-        <p class="autograph">"Code is my canvas, and websites are my art."</p>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-container">
+
+    <!-- IMAGE -->
+    <div class="about-img">
+      <img src="./enoch.jpeg" alt="Enoch Amurawaye">
     </div>
+
+    <!-- TEXT -->
+    <div class="about-content fade-in">
+      <h2>About Me</h2>
+      <h3>I am a <span id="typing">Frontend Developer</span></h3>
+      <p>
+        Hello! My name is Enoch Amurawaye, and I am a passionate web developer with expertise in both frontend and backend development. I specialize in creating responsive, intuitive, and high-performing web applications that provide seamless user experiences across all devices. My journey into web development began with curiosity and has grown into a deep passion for building innovative digital solutions. I enjoy turning complex problems into simple, elegant interfaces, combining creativity with functionality to ensure every project I work on is both visually appealing and technically robust. I have experience working with modern technologies like HTML, CSS, JavaScript, React, and Node.js, and I continuously learn new tools to stay at the forefront of the tech industry. Beyond coding, I am a strong advocate for clean, maintainable, and scalable code, emphasizing collaboration and effective communication within teams. I believe that every line of code and every design choice should enhance user experience and create a meaningful impact. When I am not coding, I enjoy learning new design patterns, exploring user experience trends, and improving my skills through hands-on projects. My goal is to build web experiences that are not only functional but also memorable, accessible, and delightful for users.
+      </p>
+      <div class="about-buttons">
+        <button class="btn">Download CV</button>
+        <button class="btn outline">Contact Me</button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-    <h1>My Portfolio</h1>
-    <div class="portfolio-grid">
-        <div class="card"><img src="./apple.png"><div class="card-content"><h2>Apple UI Clone</h2><p>HTML & CSS only</p><a href="https://apple-ui-ux-clone.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./notification.png"><div class="card-content"><h2>Notification Page</h2><p>HTML & CSS</p><a href="https://notification-page-drab-nine.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./resturant.png"><div class="card-content"><h2>Exotic Restaurant</h2><p>HTML, CSS & minimal JS</p><a href="https://exotic-resturant-uxmb.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./youtube.png"><div class="card-content"><h2>YouTube Clone</h2><p>HTML & CSS</p><a href="https://you-tube-clone-project-navy.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./moving-wheels.png"><div class="card-content"><h2>Moving Car</h2><p>CSS animation</p><a href="https://rolling-wheel.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./bento.png"><div class="card-content"><h2>Bento Grid</h2><p>CSS Grid layout</p><a href="https://penguin-three.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./penguin.png"><div class="card-content"><h2>Flappy Penguin</h2><p>HTML & CSS</p><a href="https://penguin-three.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./discord.png"><div class="card-content"><h2>Discord Login</h2><p>UI Design</p><a href="https://discord-login-delta.vercel.app/" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./facbook.png"><div class="card-content"><h2>Facebook Login</h2><p>UI Design</p><a href="/facebook/facebook_style.html" target="_blank">View Project</a></div></div>
-        <div class="card"><img src="./waitinglist.png"><div class="card-content"><h2>Waiting List</h2><p>Beautiful page</p><a href="https://waiting-list-gray.vercel.app/" target="_blank">View Project</a></div></div>
-    </div>
-</section>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
 
-<!-- GET IN TOUCH -->
-<section id="getintouch">
-    <div class="contact-card">
-        <h1>Get in Touch</h1>
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Username">
-        <input type="text" placeholder="Phone Number">
-        <textarea placeholder="Message"></textarea>
-        <button class="cool-btn">Send Message</button>
-    </div>
-</section>
+  <div class="grid">
 
-<!-- CHAT BOX -->
-<div class="chat-box">
-    <div class="chat-header">Chat with me 💬</div>
-    <div class="chat-body">
-        <div class="chat-message">Hi! How can I help you today?</div>
+    <div class="card">
+      <a href="https://apple-ui-ux-clone.vercel.app/" target="_blank">
+        <img src="./apple.png" alt="Apple Clone">
+      </a>
+      <h3>Apple Clone</h3>
     </div>
-    <div class="chat-input">
-        <input type="text" placeholder="Type your message...">
-        <button>Send</button>
+
+    <div class="card">
+      <a href="https://notiication-page.vercel.app/" target="_blank">
+        <img src="./notification.png" alt="Notification UI">
+      </a>
+      <h3>Notification UI</h3>
     </div>
-</div>
+
+    <div class="card">
+      <a href="https://exotic-resturant.vercel.app/" target="_blank">
+        <img src="./resturant.png" alt="Restaurant">
+      </a>
+      <h3>Restaurant</h3>
+    </div>
+
+    <div class="card">
+      <a href="https://vercel.com/enochamurawaiye01-bytes-projects/you-tube-clone-project" target="_blank">
+        <img src="./youtube.png" alt="YouTube Clone">
+      </a>
+      <h3>YouTube Clone</h3>
+    </div>
+
+    <div class="card">
+      <a href="https://bento-grid-wp1v.vercel.app/" target="_blank">
+        <img src="./bento.png" alt="Bento Grid">
+      </a>
+      <h3>Bento Grid</h3>
+    </div>
+
+    <div class="card">
+      <a href="https://penguin-three.vercel.app/" target="_blank">
+        <img src="./penguin.png" alt="Penguin Project">
+      </a>
+      <h3>Penguin</h3>
+    </div>
+
+    <div class="card">
+      <a href="https://discord-login-delta.vercel.app/" target="_blank">
+        <img src="./discord.png" alt="Discord Clone">
+      </a>
+      <h3>Discord</h3>
+    </div>
+
+    <div class="card">
+      <a href="https://waiting-list-gray.vercel.app/" target="_blank">
+        <img src="./waitinglist.png" alt="Waiting List">
+      </a>
+      <h3>Waiting List</h3>
+    </div>
+
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea placeholder="Your Message"></textarea>
+
+    <select>
+      <option>Hire Me</option>
+      <option>Collaboration</option>
+      <option>General Question</option>
+    </select>
+
+    <button class="btn">Send Message</button>
+  </form>
+
+  <!-- SOCIAL -->
+  <div class="socials">
+    <a href="https://tiktok.com/" target="_blank">TikTok</a>
+    <a href="https://facebook.com/" target="_blank">Facebook</a>
+    <a href="mailto:enochamurawaiye01@gmail.com">Email</a>
+    <a href="https://wa.me/2348122569014" target="_blank">WhatsApp</a>
+  </div>
+
+</section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="social-icons">
-        <a href="https://www.facebook.com" target="_blank">📘</a>
-        <a href="mailto:example@email.com">📧</a>
-        <a href="https://twitter.com" target="_blank">🐦</a>
-        <a href="https://www.instagram.com" target="_blank">📸</a>
-        <a href="https://wa.me/2348122569014" target="_blank">💬</a>
-    </div>
-    <h3>©️2025 Enoch. All rights reserved</h3>
+  <p>© 2026 Enoch Portfolio</p>
 </footer>
 
-<script>
-// Smooth scroll
-document.querySelectorAll('.list a').forEach(link=>{
-    link.addEventListener('click', e=>{
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-        document.getElementById('menu-toggle').checked=false;
-    });
-});
-
-// Navbar shrink
-window.addEventListener('scroll',()=>{ document.querySelector('nav').classList.toggle('shrink',window.scrollY>50); });
-
-// Chat toggle & replies
-const chatHeader = document.querySelector('.chat-header');
-const chatBody = document.querySelector('.chat-body');
-const chatInput = document.querySelector('.chat-input input');
-const chatButton = document.querySelector('.chat-input button');
-
-chatHeader.addEventListener('click',()=>chatBody.classList.toggle('active'));
-
-chatButton.addEventListener('click',()=>{
-    const userMsg = chatInput.value.trim();
-    if(!userMsg) return;
-    const userDiv = document.createElement('div');
-    userDiv.className = 'chat-message user';
-    userDiv.textContent = userMsg;
-    chatBody.appendChild(userDiv);
-    chatInput.value='';
-    chatBody.scrollTop = chatBody.scrollHeight;
-
-    setTimeout(()=>{
-        const botDiv = document.createElement('div');
-        botDiv.className = 'chat-message';
-        botDiv.textContent = "Thanks for your message! I'll get back to you soon.";
-        chatBody.appendChild(botDiv);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    },800);
-});
-
-// Fade-in on scroll for portfolio and about
-const faders=document.querySelectorAll('#portfolio .card,#getintouch,#aboutme');
-window.addEventListener('scroll',()=>{
-    faders.forEach(el=>{
-        const rect=el.getBoundingClientRect();
-        if(rect.top<window.innerHeight-100){ el.style.opacity=1; el.style.transform='translateY(0)'; }
-    });
-});
-function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
-</script>
+<script src="script.js"></script>
 </body>
 </html>
