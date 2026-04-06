@@ -11,37 +11,30 @@
 
 <body>
 
-<!-- CURSOR -->
+<!-- CUSTOM CURSOR -->
 <div id="cursor"></div>
 
+<!-- LOADER -->
 <div id="loader">
   <div class="loader-content">
     <h1 class="logo">Enoch<span>.</span></h1>
-
-   <!-- HERO -->
-<h2>I am a <span id="hero-typing"></span></h2>
-
-<!-- LOADER -->
-<p id="loader-typing"></p>
-
+    <p id="loader-typing"></p>
+    <p id="loader-percent">0%</p>
     <div class="progress-bar">
       <div class="progress"></div>
     </div>
   </div>
 </div>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav class="nav">
   <h2 class="logo">ENOCH</h2>
-
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-
-  <!-- HAMBURGER -->
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
@@ -49,22 +42,20 @@
   </div>
 </nav>
 
-<!-- HERO SLIDER -->
+<!-- HERO SECTION WITH SLIDER -->
 <section class="hero" id="home">
-
   <div class="slides">
 
     <!-- SLIDE 1 -->
     <div class="slide active">
       <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600" alt="">
       <div class="overlay"></div>
-
       <div class="content">
         <h1>Hello, I'm Enoch</h1>
-        <h3>I am a <span id="typing"></span></h3>
+        <h3 id="hero-typing"></h3>
         <p>
           I am a passionate frontend and backend developer focused on building clean,
-          responsive, and high-performing web applications that deliver seamless user experiences.
+          responsive, and high-performing web applications.
         </p>
         <button onclick="location.href='#projects'">View Projects</button>
       </div>
@@ -74,13 +65,9 @@
     <div class="slide">
       <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600" alt="">
       <div class="overlay"></div>
-
       <div class="content">
         <h1>Creative UI/UX Designer</h1>
-        <p>
-          I design intuitive and visually engaging user interfaces that improve user experience,
-          accessibility, and interaction across different platforms and devices.
-        </p>
+        <p>I design intuitive and visually engaging user interfaces that improve user experience.</p>
         <button onclick="location.href='#about'">About Me</button>
       </div>
     </div>
@@ -89,13 +76,9 @@
     <div class="slide">
       <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600" alt="">
       <div class="overlay"></div>
-
       <div class="content">
         <h1>Problem Solver</h1>
-        <p>
-          I analyze complex challenges and transform them into efficient, scalable, and
-          user-friendly solutions using clean and maintainable code.
-        </p>
+        <p>I transform complex challenges into efficient, scalable, and user-friendly solutions.</p>
         <button><a href="https://wa.me/2348122569014">Contact Me</a></button>
       </div>
     </div>
@@ -108,24 +91,18 @@
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 <section class="about-section" id="about">
   <div class="about-container">
-
-    <!-- IMAGE -->
     <div class="about-img">
       <img src="./enoch.jpeg" alt="Enoch Amurawaye">
     </div>
-
-    <!-- TEXT -->
     <div class="about-content fade-in">
       <h2>About Me</h2>
-      <h3>I am a <span id="typing">Frontend Developer</span></h3>
       <p>
-        Hello! My name is Enoch Amurawaye, and I am a passionate web developer 
+               Hello! My name is Enoch Amurawaye, and I am a passionate web developer 
         with expertise in both frontend and backend development. I specialize in creating responsive, intuitive, and high-performing web applications
          that provide seamless user experiences across all devices. My journey 
          into web development began with curiosity and has grown into a deep 
@@ -144,14 +121,12 @@
         <button class="btn outline">Contact Me</button>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECTS SECTION -->
 <section id="projects">
   <h2>Projects</h2>
-
   <div class="grid">
 
     <div class="card">
@@ -212,32 +187,28 @@
 
   </div>
 </section>
-<!-- CONTACT -->
+
+<!-- CONTACT SECTION -->
 <section id="contact">
   <h2>Contact Me</h2>
-
   <form class="contact-form">
     <input type="text" placeholder="Full Name" required>
     <input type="email" placeholder="Email Address" required>
     <textarea placeholder="Your Message"></textarea>
-
     <select>
       <option>Hire Me</option>
       <option>Collaboration</option>
       <option>General Question</option>
     </select>
-
     <button class="btn">Send Message</button>
   </form>
 
-  <!-- SOCIAL -->
   <div class="socials">
     <a href="https://tiktok.com/" target="_blank">TikTok</a>
     <a href="https://facebook.com/" target="_blank">Facebook</a>
     <a href="mailto:enochamurawaiye01@gmail.com">Email</a>
     <a href="https://wa.me/2348122569014" target="_blank">WhatsApp</a>
   </div>
-
 </section>
 
 <!-- FOOTER -->
